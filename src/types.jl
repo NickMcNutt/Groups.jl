@@ -8,4 +8,6 @@ end
 
 immutable SymmetricGroup{N} <: Group end
 
-typealias O3 OrthogonalGroup{T, 3}
+typealias O3{T} OrthogonalGroup{T, 3}
+
+O3{T}(α::T, β::T, γ::T) = OrthogonalGroup{T, 3}(α, β, γ)
