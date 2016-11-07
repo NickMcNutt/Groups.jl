@@ -51,3 +51,5 @@ wigner_D̃_matrix{T<:AbstractFloat}(J::Int, α::T, β::T, γ::T) = [wigner_D̃(J
 
 wigner_d_matrix{T<:AbstractFloat}(J::Int, β::T) = [wigner_d(J, M, M′, β) for M in -J:J, M′ in -J:J]
 wigner_D_matrix{T<:AbstractFloat}(J::Int, α::T, β::T, γ::T) = [wigner_D(J, M, M′, α, β, γ) for M in -J:J, M′ in -J:J]
+
+unitary_irrep{T}(g::O3{T}, L::Int) = wigner_D_matrix(L, g.α, g.β, g.γ)

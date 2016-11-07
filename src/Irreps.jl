@@ -1,6 +1,16 @@
 module Irreps
 
 export
+    # Types
+    Group,
+    OrthogonalGroup,
+    SymmetricGroup,
+    O3,
+
+    # General
+    unitary_irrep,
+    orthogonal_irrep,
+
     # Unitary O(3)
     wigner_d̃,
     wigner_D̃,
@@ -16,6 +26,7 @@ export
     irrep_O3
 
 
+include("types.jl")
 include("unitary_O3.jl")
 include("orthogonal_O3.jl")
 
