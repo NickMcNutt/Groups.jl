@@ -27,7 +27,7 @@ export
 
 
 include("types.jl")
-include("unitary_O3.jl")
-include("orthogonal_O3.jl")
+include("irreps/unitary_O3.jl")
+include("irreps/orthogonal_O3.jl")
 
 end
