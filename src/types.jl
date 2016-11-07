@@ -8,4 +8,4 @@ end
 
 immutable SymmetricGroup{N} <: Group end
 
-typealias O3{T} OrthogonalGroup{T, 3}
+typealias O3 OrthogonalGroup{T, 3}
