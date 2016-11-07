@@ -1,4 +1,4 @@
-The Irreps.jl package is licensed under the MIT "Expat" License:
+The Groups.jl package is licensed under the MIT "Expat" License:
 
 > Copyright (c) 2016: Nick McNutt.
 > 

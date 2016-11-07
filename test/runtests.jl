@@ -1,4 +1,4 @@
-using Irreps
+using Groups
 using Base.Test
 
 # write your own tests here
