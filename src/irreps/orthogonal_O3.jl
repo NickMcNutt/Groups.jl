@@ -91,3 +91,19 @@ irrep_O3{T}(M::Matrix{T}, R::Matrix{T}) = irrep_O3!(Matrix{T}(size(M, 1) + 2, si
 Generate an irrep of O(3) of dimension 2l+1 from irrep R of dimension 3.
 """
 irrep_O3{T}(R::Matrix{T}, l::Int) = l == 1 ? R : irrep_O3(irrep_O3(R, l - 1), R)
+
+@inbounds function euler_zyz!{T}(R::Matrix{T}, α::T, β::T, γ::T)
+    R[1, 1] = cos(γ)⋅cos(α)⋅cos(β) - sin(γ)⋅sin(α)
+    R[2, 1] = sin(α)⋅cos(γ)⋅cos(β) + sin(γ)⋅cos(α)
+    R[3, 1] = -sin(β)⋅cos(γ)
+    R[1, 2] = -sin(γ)⋅cos(α)⋅cos(β) - cos(γ)⋅sin(α)
+    R[2, 2] = -sin(γ)⋅sin(α)⋅cos(β) + cos(γ)⋅cos(α)
+    R[3, 2] = sin(β)⋅sin(γ)
+    R[1, 3] = sin(β)⋅cos(α)
+    R[2, 3] = sin(β)⋅sin(α)
+    R[3, 3] = cos(β)
+
+    return R
+end
+
+orthogonal_irrep{T}(g::O3{T}, L::Int) = L == 0 ? fill(one(T), (1, 1)) : irrep_O3(euler_zyz!(Matrix{T}(3, 3), g.α, g.β, g.γ), L)
