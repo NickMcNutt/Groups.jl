@@ -1,6 +1,6 @@
 abstract Group
 
-immutable UnitaryGroup{T, N} <: Group
+immutable UnitaryGroup{T, N} <: Group end
 
 immutable OrthogonalGroup{T, N} <: Group
     α::T
