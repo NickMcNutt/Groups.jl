@@ -1,5 +1,7 @@
 abstract Group
 
+immutable UnitaryGroup{T, N} <: Group
+
 immutable OrthogonalGroup{T, N} <: Group
     α::T
     β::T
