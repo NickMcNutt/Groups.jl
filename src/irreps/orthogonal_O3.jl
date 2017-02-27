@@ -105,4 +105,4 @@ irrep_O3{T}(R::Matrix{T}, l::Int) = l == 1 ? R : irrep_O3(irrep_O3(R, l - 1), R)
     return R
 end
 
-orthogonal_irrep{T}(g::O3{T}, L::Int) = L == 0 ? fill(one(T), (1, 1)) : irrep_O3(euler_zyz!(Matrix{T}(3, 3), g.α, g.β, g.γ), L)
+real_irrep{T}(g::O3{T}, L::Int) = L == 0 ? fill(one(T), (1, 1)) : irrep_O3(euler_zyz!(Matrix{T}(3, 3), g.α, g.β, g.γ), L)
