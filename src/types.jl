@@ -1,4 +1,4 @@
-abstract Group
+abstract type Group end
 
 immutable UnitaryGroup{T, N} <: Group end
 
@@ -8,8 +8,12 @@ immutable OrthogonalGroup{T, N} <: Group
     γ::T
 end
 
-immutable SymmetricGroup{N} <: Group end
+immutable SymmetricGroup{N} <: Group
+    σ::Vector{Int}
+end
 
-typealias O3{T} OrthogonalGroup{T, 3}
+SymmetricGroup(σ::Vector{Int}) = SymmetricGroup{length(σ)}(σ)
+
+O3{T} = OrthogonalGroup{T, 3}
 
 O3{T}(α::T, β::T, γ::T) = OrthogonalGroup{T, 3}(α, β, γ)

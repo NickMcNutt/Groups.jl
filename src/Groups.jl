@@ -8,8 +8,8 @@ export
     O3,
 
     # General
-    unitary_irrep,
-    orthogonal_irrep,
+    irrep,
+    real_irrep,
 
     # Unitary O(3)
     wigner_d̃,
@@ -23,11 +23,17 @@ export
 
     # Orthogonal O(3)
     irrep_O3!,
-    irrep_O3
+    irrep_O3,
+
+    # Symmetric Group
+    standard_tableaux,
+    yor
+
 
 
 include("types.jl")
 include("irreps/unitary_O3.jl")
 include("irreps/orthogonal_O3.jl")
+include("irreps/symmetric_group.jl")
 
 end
