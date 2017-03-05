@@ -19,3 +19,21 @@ function rand{N}(::Type{Sn{N}})
     σ = shuffle(1:N)
     Sn(σ)
 end
+
+# Defining representation
+
+@inbounds function defrep!{N, T}(M::Matrix{T}, g::Sn{N})
+    σ = g.σ
+    n = size(M, 1)
+    for i in 1:n, j in 1:n
+        if i == σ[j]
+            M[i, j] = one(T)
+        else
+            M[i, j] = zero(T)
+        end
+    end
+
+    return M
+end
+
+defrep{N}(g::Sn{N}) = defrep!(Matrix{Float64}(N, N), g)
