@@ -43,7 +43,7 @@ end
 
 wigner_D̃{T<:AbstractFloat}(J::Int, M::Int, M′::Int, α::T, β::T, γ::T) = exp(-im * M * α) * wigner_d̃(J, M, M′, β) * exp(-im * M′ * γ)
 
-wigner_d{T<:AbstractFloat}(J::Int, M::Int, M′::Int, β::T) = sqrt(2 / (2J + 1)) * wigner_d(J, M, M′, β)
+wigner_d{T<:AbstractFloat}(J::Int, M::Int, M′::Int, β::T) = sqrt(2 / (2J + 1)) * wigner_d̃(J, M, M′, β)
 wigner_D{T<:AbstractFloat}(J::Int, M::Int, M′::Int, α::T, β::T, γ::T) = sqrt(2 / (2J + 1)) * wigner_D̃(J, M, M′, α, β, γ)
 
 wigner_d̃_matrix{T<:AbstractFloat}(J::Int, β::T) = [wigner_d̃(J, M, M′, β) for M in -J:J, M′ in -J:J]
