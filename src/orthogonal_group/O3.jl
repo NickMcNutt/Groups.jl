@@ -13,8 +13,7 @@ O3{T}(α::T, β::T, γ::T) = OrthogonalGroup{T, 3}(α, β, γ)
 
 # Identity element
 
-eye{T}(::Type{O3}) = O3(zero(T), zero(T), zero(T))
-eye(::Type{O3}) = eye{Float64}(O3)
+eye(::Type{O3}) = O3(0.0, 0.0, 0.0)
 
 # Random group element
 
