@@ -1,4 +1,5 @@
-import Base: eye, rand
+using Munkres
+import Base: eye, rand, *, inv
 
 # Type definitions
 
@@ -37,3 +38,17 @@ end
 end
 
 defrep{N}(g::Sn{N}) = defrep!(Matrix{Float64}(N, N), g)
+
+function nearest{N, T}(::Type{Sn{N}}, M_defrep::Matrix{T})
+    Sn{N}(munkres(-M_defrep'))
+end
+
+# Multiplication
+function *{N}(g₁::Sn{N}, g₂::Sn{N})
+    Sn{N}(g₁.σ[g₂.σ])
+end
+
+# Inversion
+function inv{N}(g::Sn{N})
+    Sn{N}(indexin(1:N, g.σ))
+end

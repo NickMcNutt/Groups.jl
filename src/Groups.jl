@@ -10,6 +10,9 @@ export
     # General group methods
     eye,
     rand,
+    nearest,
+    *,
+    inv,
     defrep, defrep!,
     irrep,
     real_irrep,
